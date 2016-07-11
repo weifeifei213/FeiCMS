@@ -1,0 +1,753 @@
+
+<html>
+	<head>
+
+		<!-- 插入打印控件 -->
+		<OBJECT ID="jatoolsPrinter"
+			CLASSID="CLSID:B43D3361-D975-4BE2-87FE-057188254255"
+			codebase="jatoolsP.cab#version=1,2,0,0"></OBJECT>
+
+
+		<title>表格打印演示</title>
+
+		<meta http-equiv=Content-Type content=text/html; charset=utf-8>
+		<link href="sheet0412.css" rel="stylesheet" type="text/css">
+		<script>
+function doPrint(how)
+{
+    
+    if(typeof(jatoolsPrinter.page_div_prefix)=='undefined'){
+        alert("请按页顶上的黄色提示下载ActiveX控件.如果没有提示请按以下步骤设置ie.\n 工具-> internet 选项->安全->自定义级别,设置 ‘下载未签名的 ActiveX ’为'启用'状态")
+        return ;
+    }
+	//打印文档对象
+    var myreport ={ 
+    				documents: document,    // 打印页面(div)们在本文档中
+    				copyrights  :    '杰创软件拥有版权 www.jatools.com'         // 版权声明必须
+    			  };
+    			  
+    // 调用打印方法
+    if(how == '打印预览...')
+    	jatoolsPrinter.printPreview(myreport );   // 打印预览
+                 
+   	else if(how == '打印...')
+   		jatoolsPrinter.print(myreport ,true);   // 打印前弹出打印设置对话框
+                
+   	else
+   		jatoolsPrinter.print(myreport ,false);       // 不弹出对话框打印
+}
+</script>
+
+	</head>
+
+	<body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
+		marginwidth=0 marginheight=0>
+		<input type="button" value="打印预览..." onClick="doPrint('打印预览...')">
+		<input type="button" value="打印..." onClick="doPrint('打印...')">
+		<input type="button" value="打印" onClick="doPrint('打印')">
+		<p>
+		</p>
+		<p>
+		</p>
+		<table id='report_header' width="59%" border=0 cellspacing=0
+			cellpadding=0 align=center id="table1">
+			<tr>
+				<td align=center height=50>
+					<img src=zcfzb.gif border=0>
+				</td>
+			</tr>
+			<tr>
+				<td valign=bottom>
+					<form name=ab target=_self action=zcfzb.asp>
+						<input type=hidden value=600019 name=or_gpdm>
+						<font color=#666666>代码：</font><font class=tr11 color=#cc0000>600019</font>��
+						<font color=#666666>名称：</font><font class=tr11 color=#cc0000>Ｇ宝钢</font>�&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						查看历史：&nbsp;&nbsp; 2005-6-30
+					</form>
+				</td>
+				<td>
+
+				</td>
+			</tr>
+			<tr>
+				<td height=1 bgcolor=#cc0000></td>
+			</tr>
+			<tr>
+				<td height=15 align=right></td>
+			</tr>
+			<tr>
+				<td height=30 align=right>
+					单位：万元
+				</td>
+			</tr>
+		</table>
+		<table border=1 bordercolordark=#ffffff bordercolorlight=#d2d0f9
+			cellpadding=3 cellspacing=0 class=bfont width="59%" align=center
+			id="table3">
+			<tr id='page_header' bgcolor=#e7e6fb>
+				<td width="39%">
+					变动时间
+				</td>
+				<td width="28%">
+					2005-06-30
+				</td>
+			</tr>
+			<tbody id='page1'>
+				<tr>
+					<td width="39%">
+						变动原因
+					</td>
+					<td width="28%">
+						中报
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2 class=demand>
+						<b>流动资产：</b>
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						货币资金
+					</td>
+					<td width="28%">
+						989,256.45
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						短期投资
+					</td>
+					<td width="28%">
+						5,880.85
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						应收票据
+					</td>
+					<td width="28%">
+						304,978.91
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						应收股利
+					</td>
+					<td width="28%">
+						165.14
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						应收利息
+					</td>
+					<td width="28%">
+						41.38
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						应收帐款
+					</td>
+					<td width="28%">
+						470,049.11
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						坏帐准备
+					</td>
+					<td width="28%">
+						0.00
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						应收帐款净额
+					</td>
+					<td width="28%">
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						预付贷款
+					</td>
+					<td width="28%">
+						325,581.26
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						应收补贴款
+					</td>
+					<td width="28%">
+						854.75
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						其他应收款
+					</td>
+					<td width="28%">
+						62,169.98
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						内部应收款
+					</td>
+					<td width="28%">
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						待摊费用
+					</td>
+					<td width="28%">
+						6,843.37
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						存货
+					</td>
+					<td width="28%">
+						3,299,185.48
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						准备存货变动损失准备
+					</td>
+					<td width="28%">
+						0.00
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						存货净额
+					</td>
+					<td width="28%">
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						待转其他业务支出
+					</td>
+					<td width="28%">
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						待处理流动资产损失
+					</td>
+					<td width="28%">
+						0.00
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						一年内到期的长期债券投资
+					</td>
+					<td width="28%">
+						600.00
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						其他流动资产
+					</td>
+					<td width="28%">
+						2,370.32
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						流动资产合计
+					</td>
+					<td width="28%">
+						5,467,977.01
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2 class=demand>
+						<b>长期投资：</b>
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						长期股权投资
+					</td>
+					<td width="28%">
+						376,735.07
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						长期债权投资
+					</td>
+					<td width="28%">
+						26,549.92
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						长期投资减值准备
+					</td>
+					<td width="28%">
+						0.00
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						长期投资
+					</td>
+					<td width="28%">
+						0.00
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						合并价差
+					</td>
+					<td width="28%">
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2 class=demand>
+						<b>固定资产：</b>
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						固定资产原价
+					</td>
+					<td width="28%">
+						16,259,344.43
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						累计折旧
+					</td>
+					<td width="28%">
+						8,191,535.76
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						固定资产净值
+					</td>
+					<td width="28%">
+						8,067,808.68
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						工程物资
+					</td>
+					<td width="28%">
+						229,531.58
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						在建工程
+					</td>
+					<td width="28%">
+						616,980.95
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						固定资产清理
+					</td>
+					<td width="28%">
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						待处理固定资产净损失
+					</td>
+					<td width="28%">
+						0.00
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						其他
+					</td>
+					<td width="28%">
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						固定资产合计
+					</td>
+					<td width="28%">
+						8,909,128.37
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2 class=demand>
+						<b>无形资产及其他资产：</b>
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						无形资产
+					</td>
+					<td width="28%">
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						递延资产
+					</td>
+					<td width="28%">
+						0.00
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						开办费
+					</td>
+					<td width="28%">
+						0.00
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						长期待摊费用
+					</td>
+					<td width="28%">
+						20,963.49
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						无形资产及递延资产合计
+					</td>
+					<td width="28%">
+						43,135.59
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						其他长期资产
+					</td>
+					<td width="28%">
+						189,375.09
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						递延税款借项
+					</td>
+					<td width="28%">
+						53,405.12
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						<font color=red><b>资产总计</b>
+						</font>
+					</td>
+					<td width="28%">
+						15,023,170.57
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2 class=demand>
+						<b>流动负债</b>
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						短期借款
+					</td>
+					<td width="28%">
+						1,768,402.94
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						应付帐款
+					</td>
+					<td width="28%">
+						1,031,890.48
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						应付票据
+					</td>
+					<td width="28%">
+						814,977.83
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						应付工资
+					</td>
+					<td width="28%">
+						61,281.48
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						应付福利费
+					</td>
+					<td width="28%">
+						23,605.07
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						预收帐款
+					</td>
+					<td width="28%">
+						631,434.57
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						其他应付款
+					</td>
+					<td width="28%">
+						105,555.75
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						内部应付款
+					</td>
+					<td width="28%">
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						未交税金
+					</td>
+					<td width="28%">
+						51,574.19
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						未付股利
+					</td>
+					<td width="28%">
+						108,401.00
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						其他未交款
+					</td>
+					<td width="28%">
+						5,243.81
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						预提费用
+					</td>
+					<td width="28%">
+						30,447.96
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						待扣税金
+					</td>
+					<td width="28%">
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						住房周转金
+					</td>
+					<td width="28%">
+						0.00
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						一年内到期的长期负债
+					</td>
+					<td width="28%">
+						317,398.17
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						其他流动负债
+					</td>
+					<td width="28%">
+						7,019.38
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						流动负债合计
+					</td>
+					<td width="28%">
+						5,288,790.36
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2 class=demand>
+						<b>长期负债：</b>
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						长期负债
+					</td>
+					<td width="28%">
+						1,779,404.39
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						应付债券
+					</td>
+					<td width="28%">
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						长期应付款
+					</td>
+					<td width="28%">
+						563,354.93
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						其他长期负债
+					</td>
+					<td width="28%">
+						1,115.02
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						待转销汇税收益
+					</td>
+					<td width="28%">
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						长期负债合计
+					</td>
+					<td width="28%">
+						2,348,570.59
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2 class=demand>
+						<b>递延税项：</b>
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						递延税款贷项
+					</td>
+					<td width="28%">
+						862.13
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						负债合计
+					</td>
+					<td width="28%">
+						7,638,223.09
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2 class=demand>
+						<b>股东权益：</b>
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						少数股东权益
+					</td>
+					<td width="28%">
+						500,376.99
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						股本
+					</td>
+					<td width="28%">
+						1,751,200.00
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						资本公积
+					</td>
+					<td width="28%">
+						3,260,142.46
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						盈余公积
+					</td>
+					<td width="28%">
+						728,956.11
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						其中：公益金
+					</td>
+					<td width="28%">
+						264,019.68
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						未分配利润
+					</td>
+					<td width="28%">
+						1,145,735.94
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						外币报表折算差额
+					</td>
+					<td width="28%">
+						-1,464.01
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						股东权益合计
+					</td>
+					<td width="28%">
+						6,884,570.50
+					</td>
+				</tr>
+				<tr>
+					<td width="39%">
+						<font color=red><b>负债与股东权益合计</b>
+						</font>
+					</td>
+					<td width="28%">
+						15,023,170.57
+					</td>
+				</tr>
+			<tbody>
+		</table>
+	</body>
+</html>

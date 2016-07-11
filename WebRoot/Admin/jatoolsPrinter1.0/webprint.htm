@@ -1,0 +1,152 @@
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>jatoolsPrinter 1</title>
+<style>
+<!--
+H1 { 
+   font-family : Arial,Vernada,Tahoma, sans-serif;
+   color : #00008B;
+   background-color : White;
+   font-size: 28px;
+}
+
+.normal{
+	font-family : Arial,Vernada, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #444444;
+	text-decoration: none;
+	line-height: 21px;        
+}
+H2 { 
+  
+   	color: #444444;
+	line-height:20px; 
+}
+H3 .h3{ 
+   font-family : Vernada, Tahoma, Helvetica, sans-serif;
+   font-size: 16px; 
+   	color: #444444;
+   	line-height: 20px; 
+
+}
+.h3c{ 
+   font-family : Vernada, Tahoma, Helvetica, sans-serif;
+   font-size: 16px; 
+   	color: #444444;
+   	line-height: 20px; font-weight:bold 
+
+}
+.code{
+	font-family : Arial,Vernada, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #444444;
+	text-decoration: none;
+	line-height: 16px;        
+}
+:link.normal {
+	COLOR: #5c81a7; TEXT-DECORATION: underline
+}
+.note {
+	font-size: 13px;
+    font-family: 仿宋_GB2312;
+    color: #660000;
+	text-decoration: none;
+}
+h4 {
+	font-family : Vernada, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #444444;
+	line-height: 20px; 
+}
+-->
+</style>
+</head>
+
+<body>
+
+<h1 align="center">　</h1>
+<h1 align="center">基于Web的套打方案集粹</h1>
+
+<blockquote>
+  <blockquote>
+
+        <p>
+        <span class="normal">
+        应用web化，不论对开发商，还是对用户来说，实在是一种很经济的选择，因为基于web的应用，客户端的规则很简单，容易学习，容易维护，容易发布。但对程序员来说，因为浏览器的局限性，却要面对很多挑战。怎么样来进行基于web的套打，就是这么一个令多数程序员头痛不已的问题。 
+        <br>
+        <br>
+        基于web的套打，难度在于要将浏览器中呈现的html，精确地打印到票据中，而且能够实现对分页位置的控制。下面就ie浏览器所能采用的套打解决方案，来个汇总分析，希望对大家有所帮助。 
+        <br>
+        <br>
+        <span class=h3c> 一、浏览器的打印功能菜单</span><br>
+        这种方案的优势是不需要对浏览器作任何扩充，是最简单的办法，但问题也最多，如：</span></p>
+    <ol class="normal">
+      <li>
+        <span class="normal">
+        不能精确分页。浏览器一般是根据用户设置的页面大小，web页面的内容多少，来自行决定分页位置，程序员很难控制。会有页脚页眉干扰。</span></li>
+      <li>
+        <span class="normal">
+        不能准确对齐边边距及打印文字。</span></li>
+      <li>
+        <span class="normal">
+        不能解决连续打印。比如，不是仅打印一张票据，而是连续一次打印若干个票据。</span></li>
+    </ol>
+        <p>
+        <span class="normal">
+        <span class=h3c>二、使用webbrowser控件+ javascript</span><br>
+        这实际上，是浏览器打印功能菜单的一种程序调用，与打印功能菜单没什么两样。分页的问题仍然存在，只不过，可以让用户不用去点菜单，直接在网页中的一个按钮，或一个链接里面调用罢了。<br>
+        <br>
+        <span class='h3c'>三 、使用print css </span><br>
+        这是一种最理想的实现web套打的方法。这种方法通过在html文档中，嵌入打印相关的css样式，来实现对html文档输出打印的控制，比如设置纸张大小，纸张纵横方向，打印边距，分页等。显而易见，这种方式成本小，不需要下载任何插件，而且跨平台性非常好。print 
+        css推出已经有些时日，但遗憾的是，至今没有一个厂商的浏览器很好地实现了这些标准，这使得程序员目前还不能利用print css进行实际的开发。关于打印css，参见http://css-discuss.incutio.com/?page=PrintStylesheets<br>
+        <br>
+        <span class='h3c'>四 、使用pdf文件 </span><br>
+        用这种方式，就是从服务器端下载一个pdf文件流，在IE中用adobe插件打开，然后用adobe的打印菜单进行打印，虽然这种方案，也能实现精确套打，但需要下载adobe插件。这是国外报表工具经常推荐的一种打印方法，但在pdf不那么普及的中国，这种方案不是最好选择。<br>
+        <br>
+        <span class='h3c'>五 、采用纯ActiveX  </span><br>
+        这种方案就是下载一个控件，票据的数据不再以html方式呈现，而是呈现在ActiveX中。这种方案的优点是打印的精确度高，分页的可控性好，但缺点也是很明显的，嵌入ActiveX控件破坏了web应用的整体html风格，且这样的控件比较大（一般超过1M），下载颇费时间）。市场上的非java类报表产品，一般都采用这种方案。<br>
+        <br>
+        <span class='h3c'>六 、采用Applet方式 </span><br>
+        采用Applet方式，分页或精确打印，都可以做到完美，但缺点也很明显，表现在：</span></p>
+    <ol class="normal">
+      <li>
+        <span class="normal">
+        安装Applet成本巨大。需要下载十几M的文件。</span></li>
+      <li>
+        <span class="normal">
+        打印报表时，需要重新向服务器检索数据，效率低。因为Applet方案，一般采用html方式呈现数据，打印时Applet必须向服务器检索同一张票据的数据，看上去，是打印了当前页的票据，实际上，Applet根本不会用当前html页的数据来打印，而是向服务器下载数据到Applet中来打印。也就是说，打印的话，必须两次请求，一次html呈现，一次用来打印。</span></li>
+      <li>
+        <span class="normal">
+        不能解决连续打印。比如，不是仅打印一张票据，而是连续一次打印若干个票据。</span></li>
+      <li>
+        <span class="normal">不能解决打印机设置问题，如存在多台打印机时，总是需要手工选择，打印到哪一台打印机。</span></li>
+    </ol>
+        <p>
+        <span class="normal">
+        市场上java类的报表工具，一般推荐Applet方式来实现打印。<br>
+        <br>
+        <span class='h3c'>七 、轻量级的ActiveX打印方式---jatoolsPrinter </span><br>
+        这是本公司应客户要求，最新推出的一种最具创意的web套打解决方案。杰表作为一款纯java的报表工具，以前提供的web套打方案也是基于Applet的，Applet也做到了尽可能的小(只有24kb)，但用户还是抱怨，因为jre太大，安装需要耐心。另外，用Applet方式，很难实现客户端的批量打印功能。
+        采用jatoolsPrinter，其优点是：</span></p>
+    <ol class="normal">
+      <li>
+        <span class="normal">安装方便，只有90k。</span></li>
+      <li>
+        <span class="normal">
+        可以通过web脚本来选择输出打印机，纸张大小，打印方向等，不必每次手工设定。</span></li>
+      <li>
+        <span class="normal">支持附件打印问题。</span></li>
+    </ol>
+        <p>
+        <span class="normal">
+        了解更多杰表信息，<a href="http://www.jatools.com/">请按此进入&gt;&gt;&gt;</a></span></p>
+    
+  </blockquote>
+</blockquote>
+
+</body>
+
+</html>

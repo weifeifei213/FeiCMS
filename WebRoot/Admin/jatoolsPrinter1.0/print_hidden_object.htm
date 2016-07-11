@@ -1,0 +1,112 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>打印预览一个分页文档</title>
+
+<!-- 插入打印控件 -->
+<OBJECT ID="jatoolsPrinter" CLASSID="CLSID:B43D3361-D975-4BE2-87FE-057188254255" codebase="jatoolsP.cab#version=1,2,0,5"></OBJECT>  
+
+<script type="text/javascript">
+function doPrint(how)
+{
+    
+    if(typeof(jatoolsPrinter.page_div_prefix)=='undefined'){
+        alert("请按页顶上的黄色提示下载ActiveX控件.如果没有提示请按以下步骤设置ie.\n 工具-> internet 选项->安全->自定义级别,设置 ‘下载未签名的 ActiveX ’为'启用'状态")
+        return ;
+    }
+	//打印文档对象
+    var myreport ={ 
+    				documents: document,    // 打印页面(div)们在本文档中
+					classesReplacedWhenPrint: new Array('.only_for_print{display:block}'),
+    				copyrights  :    '杰创软件拥有版权 www.jatools.com'         // 版权声明必须
+    			  };
+    			  
+    // 调用打印方法
+    if(how == '打印预览...')
+    	jatoolsPrinter.printPreview(myreport );   // 打印预览
+                 
+   	else if(how == '打印...')
+   		jatoolsPrinter.print(myreport ,true);   // 打印前弹出打印设置对话框
+                
+   	else
+   		jatoolsPrinter.print(myreport ,false);       // 不弹出对话框打印
+}
+</script> 
+
+
+
+<style>
+<!--
+.title { 
+   font-family : Arial,Vernada,Tahoma, sans-serif;
+   font-size: 30px;
+   color : #00008B;
+   background-color : White; text-decoration:underline
+}
+.only_for_print{display: none}
+
+.normal{
+	font-family : Arial,Vernada, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #444444;
+	text-decoration: none;
+	line-height: 21px;
+        
+}
+-->
+</style>
+
+</head>
+<body>
+
+
+
+
+
+<p class="title">打印预览一个隐藏的文档</p>
+<br>
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="93%" height="339" id="AutoNumber1" height="51">
+  <tr>
+    <td width="49%" height="339" valign="top" >
+
+<div id='page1' class='only_for_print' style=' margin:5;width:200;height:260;background-color:white;float:left;'><p class='normal'>报表第一页<br>div id : page1</p></div>
+<div id='page2' class='only_for_print' style=' margin:5;width:189px;height:260px;background-color:white;float:left'><p class='normal'>报表第二页<br>div id : page2</p></div>
+　</td>
+    <td width="70%" height="339" valign="top" align="center" >
+
+        <table class="normal" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="144" cellSpacing="0" cellPadding="5" width="405" border="1">
+          <tr>
+            <td width="391" bgColor="#f3f3f3" height="142">&lt;style&gt;<br>
+            ...<br>
+            .only_for_print {display:none}<br>
+            ...<br>
+            &lt;/style&gt;<br>
+            ...<br>
+            //左面是两个隐藏的页<br>
+            &lt;div id=page1 class='only_for_print' ...<br>
+            &lt;div id=page2 class='only_for_print' ...<br>
+            ...<p>打印印文档对象<br>
+            var myreport ={ <br>
+            ...<br>
+            // 打印时,only_for_print取值为显示<br>
+			classesReplacedWhenPrint: new Array('.only_for_print{display:block}'),<br>
+            ...<br>
+            };</td>
+          </tr>
+        </table>
+        
+        </td>
+  </tr>
+</table>
+
+
+  <p><input type="button" value="打印预览..." onClick="doPrint('打印预览...')">
+<input type="button" value="打印..." onClick="doPrint('打印...')">
+<input type="button" value="打印" onClick="doPrint('打印')"> </p>
+
+
+</body>
+
+</html>

@@ -1,0 +1,300 @@
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>jatoolsPrinter 交互体验</title>
+<style>
+.normal{
+	font-family : Arial,Vernada, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #444444;
+	text-decoration: none;
+	line-height: 21px;
+        
+}
+H1 { 
+   font-family : Arial,Vernada,Tahoma, sans-serif;
+   color : #00008B;
+   background-color : White;
+   font-size: 20px;
+}
+.page1style {   margin:5;width:200;height:260;background-color:white;float:left;}
+.page2style {   margin:5;width:200;height:260;background-color:white;float:left;}
+</style>
+
+
+<OBJECT ID="jatoolsPrinter" CLASSID="CLSID:B43D3361-D975-4BE2-87FE-057188254255" codebase="jatoolsP.cab#version=1,2,0,5"></OBJECT>
+<script type="text/javascript">
+var howprint = '打印预览...';
+
+function loadPrinters()
+{
+    if(typeof(jatoolsPrinter.page_div_prefix)=='undefined'){
+        alert("请按页顶上的黄色提示下载ActiveX控件.如果没有提示请按以下步骤设置ie.\n 工具-> internet 选项->安全->自定义级别,设置 ‘下载未签名的 ActiveX ’为'启用'状态")
+        return ;
+    }
+	//打印文档对象
+     printers = jatoolsPrinter.printers;   // 打印机列表是一个字符串,用换行符分割
+     if(printers)
+     {
+         printers = printers.split('\n');
+         for (i=0;i< printers.length;i++)
+             printer_list.options[i+1]=new Option(printers[i],printers[i]);
+             
+         printer_list.options[0].selected = true;
+     }
+     
+    updateCode();
+}
+
+
+function printerChanged()
+{
+    if(printer_list.selectedIndex >0)
+    {
+        updatepaper_list(printer_list.value);
+    }   
+    updateCode();
+}
+
+function printScripts()
+{
+    if(howprint == '打印预览...')
+    	return '<br>jatoolsPrinter.printPreview(myreport);';
+      
+	else if(howprint == '打印...')
+	 	return '<br>jatoolsPrinter.print(myreport,true);';
+
+	else
+		return '<br>jatoolsPrinter.print(myreport,false);';
+}
+
+function actionChanged()
+{
+	howprint = event.srcElement.value;
+	updateCode();
+}
+
+function updatepaper_list(printer)
+{
+     papers = jatoolsPrinter.papers(printer);  
+     if(papers )
+     {
+         firstOption = paper_list.options[0];
+         for (i=papers .length-1;i>0;i--)
+             paper_list.options[i]= null;
+         
+         papers = papers .split('\n');
+         for (i=0;i< papers .length;i++)
+         {
+             paper = papers[i].split('\t');
+			 ps = paper[1].split('x');
+             paper_list.options[i+1]=new Option(paper[0]+' ('+ps[0]+' mm x '+ps[1]+' mm)',paper[1]);
+         }
+     }
+}
+function doPrint()
+{
+    report = buildReport();
+    
+    if(howprint== '打印预览...')
+      	jatoolsPrinter.printPreview(report);
+	else if(howprint == '打印...')
+      	jatoolsPrinter.print(report ,true);
+	else
+      	jatoolsPrinter.print(report ,false);
+}
+
+
+
+function buildReport()
+{
+	myreport = new Object();
+    
+    settingsRequired = printer_list.selectedIndex>0 || paper_list.selectedIndex >0 
+                       || orientation_list.selectedIndex >0;
+    
+    if(settingsRequired)  // 如果需要打印配置,则生成一个print_settings对象保存之
+    {
+    	mysettings= new Object();
+
+    	if(printer_list.selectedIndex>0)
+    	   mysettings.printer = printer_list.value;
+    	   
+    	if(paper_list.selectedIndex >0)
+    	{
+    	     paper = paper_list.value;  // "2100mm x 2970mm" 类似这种形式,需要析取出数值 
+    	     paper = paper.split('x');
+    	     mysettings.pageWidth = parseInt(paper[0]);
+    	     mysettings.pageHeight = parseInt(paper[1]);
+    	}
+    	
+    	if(orientation_list.selectedIndex >0)
+    		mysettings.orientation = parseInt(orientation_list.value);
+    	   
+    	myreport.print_settings = mysettings;  
+    }
+    // 打印配置id
+    myreport.print_settings_id = print_settings_id_text.value;
+    // 选择报表,也就是div的前缀
+    myreport.page_div_prefix = page_div_prefix_list.value;
+    
+    myreport.documents =document;
+
+    
+    // 是否打印后保存打印设置
+    if(save_print_settings_after_print_list.selectedIndex>0)
+    	myreport.save_print_settings_after_print = save_print_settings_after_print_list.value == 'true';
+
+	myreport.copyrights ='杰创软件拥有版权 www.jatools.com';
+	
+	
+    return myreport;
+}
+
+function updateCode()
+{
+   r = buildReport();
+   settingsCode = 'myreport = new Object();';
+   if(r.print_settings)
+   {
+   		settingsCode += '<br>myreport.print_settings = new Object();';
+   		if(r.print_settings.printer)
+   			settingsCode += '<br>myreport.print_settings.printer="'+r.print_settings.printer+'";'
+   		
+   		if(r.print_settings.pageWidth)
+   		{
+   			settingsCode += '<br>myreport.print_settings.pageWidth='+r.print_settings.pageWidth+';';
+   			settingsCode += '<br>myreport.print_settings.pageHeight='+r.print_settings.pageHeight+';';
+   		}
+   		
+   		if(r.print_settings.orientation)
+   			settingsCode += '<br>myreport.print_settings.orientation='+r.print_settings.orientation+';';
+
+   	}
+   	
+   	if(r.print_settings_id)
+   	     settingsCode += '<br>myreport.print_settings_id="'+r.print_settings_id+'";';
+   	
+   	settingsCode += '<br>myreport.page_div_prefix="'+r.page_div_prefix+'";';
+   	settingsCode += '<br>myreport.documents =document;  // 打印页面div存在本页面中';
+   	if('undefined' != typeof(r.save_print_settings_after_print))
+   		settingsCode += '<br>myreport.save_print_settings_after_print='+r.save_print_settings_after_print+';';
+   	
+	settingsCode += '<br>myreport.copyrights ="杰创软件拥有版权 www.jatools.com";';	
+	settingsCode += '<br>';
+	settingsCode +=	printScripts();
+	settings_code.innerHTML = settingsCode;
+	
+	
+
+}
+
+
+</script>
+
+
+
+</head>
+
+<body onload='loadPrinters()'>
+
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" height=100% width="98%" id="AutoNumber2">
+  <tr>
+    <td width="28%"><div style='width:100%;height:100%;background-color:#EFEBEF;overflow:scroll;'>
+    
+ <div id='report1page1' class ='page1style'><p class='normal' >第一文档<br>第1页,<br>div前缀为 'report1',<br>本页id为 'report1page1'</p></div>
+<div id='report1page2' class ='page1style'><p class='normal' >第一文档<br>第2页,<br>div前缀为 'report1',<br>本页id为 'report1page2'</p></div>
+<div id='report2page1' class ='page2style'><p class='normal' >第二文档<br>第1页,<br>div前缀为 'report2',<br>本页id为 'report2page1'</p></div>
+<div id='report2page2' class ='page2style'><p class='normal' >第二文档<br>第2页,<br>div前缀为 'report2',<br>本页id为 'report2page2'</p></div>
+<div id='report2page3' class ='page2style'><p class='normal' >第二文档<br>第3页,<br>div前缀为 'report2',<br>本页id为 'report2page3'</p></div>
+<div id='report2page4' class ='page2style'><p class='normal' >第二文档<br>第4页,<br>div前缀为 'report2',<br>本页id为 'report2page4'</p></div>
+</div>　</td>
+    <td width="72%" valign="top" align="center">　<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="570" id="AutoNumber1" height="175">
+  <tr>
+    <td width="8%" class="normal" height="1" bgcolor="#EFEBEF" style="line-height: 1; padding-left: 10">　</td>
+    <td width="92%" class="normal" height="1" bgcolor="#EFEBEF" style="line-height: 1"> 
+　</td>
+  </tr>
+  <tr>
+    <td width="8%" class="normal" height="25" bgcolor="#EFEBEF" style="padding-left: 10">
+    输出到哪个打印机: </td>
+    <td width="92%" class="normal" height="25" bgcolor="#EFEBEF"> 
+<select name="printer_list" onChange="printerChanged()" >
+<option>--默认--</option>
+</select></td>
+  </tr>
+  <tr>
+    <td width="8%" class="normal" height="25" bgcolor="#EFEBEF" style="padding-left: 10">
+    用什么纸张类型: </td>
+    <td width="92%" class="normal" height="25" bgcolor="#EFEBEF"> <select name="paper_list" onChange='updateCode()'>
+<option selected>--默认--</option>
+</select></td>
+  </tr>
+  <tr>
+    <td width="8%" class="normal" height="25" bgcolor="#EFEBEF" style="padding-left: 10">打印方向: </td>
+    <td width="92%" class="normal" height="25" bgcolor="#EFEBEF"> <select name="orientation_list" onChange='updateCode()'>
+<option selected>--默认--</option>
+<option value="1">纵向</option>
+<option value="2">横向</option>
+</select></td>
+  </tr>
+  <tr>
+    <td width="8%" class="normal" height="25" bgcolor="#EFEBEF" style="padding-left: 10">打印设置id:</td>
+    <td width="92%" class="normal" height="25" bgcolor="#EFEBEF"><input type="text" name="print_settings_id_text" size="49" value="mysettings"  onKeyUp='updateCode()'></td>
+  </tr>
+  <tr>
+    <td width="8%" class="normal" height="25" bgcolor="#EFEBEF" style="padding-left: 10">是否在打印后,保存上述配置:</td>
+    <td width="92%" class="normal" height="25" bgcolor="#EFEBEF"><select name="save_print_settings_after_print_list"  onChange='updateCode()'>
+<option selected>--默认--</option>
+<option value="true">保存</option>
+<option value="false">不保存</option>
+</select></td>
+  </tr>
+  <tr>
+    <td width="8%" class="normal" height="25" bgcolor="#EFEBEF" style="padding-left: 10">打印本页中的哪一个报表:</td>
+    <td width="92%" class="normal" height="25" bgcolor="#EFEBEF"><select name="page_div_prefix_list"  onChange='updateCode()'>
+<option value="report1" selected>报表一</option>
+<option value="report2">报表二</option>
+</select></td>
+  </tr>
+  <tr>
+    <td width="8%" class="normal" height="25" bgcolor="#EFEBEF" style="padding-left: 10">如何打印:</td>
+    <td width="92%" class="normal" height="25" bgcolor="#EFEBEF">
+    
+    
+<INPUT TYPE="radio" NAME="act" VALUE="打印预览..." onClick="actionChanged()" checked>打印预览...</input>
+   <INPUT TYPE="radio" NAME="act" VALUE="打印..." onClick="actionChanged()">打印...</input>
+   <INPUT TYPE="radio" NAME="act" VALUE="打印" onClick="actionChanged()">打印</input> 
+    
+    　</td>
+  </tr>
+  <tr>
+    <td width="8%" class="normal" height="1" bgcolor="#EFEBEF" style="line-height: 1; padding-left: 10">　</td>
+    <td width="92%" class="normal" height="1" bgcolor="#EFEBEF" style="line-height: 1"> 
+　</td>
+  </tr>
+  <tr>
+    <td width="29%" class="normal" height="53" valign="bottom" style="padding-left: 10">上述配置等同以下代码:</td>
+    <td width="71%" class="normal" height="53"></td>
+  </tr>
+  <tr>
+         <td class="normal" width="100%" colspan='2' bgColor="#f3f3f3" height="15"  style="padding:10; border:1px solid #808080; " ><div id='settings_code'></div>
+        <div id='action_code'></div></td>
+  </tr>
+  <tr>
+    <td width="100%" class="normal" colspan="2" height="67">
+    <p align="center">
+    <input type="button" value="执行打印" onclick='doPrint()' style="width: 70; height: 30"></td>
+  </tr>
+</table>
+</td>
+  </tr>
+</table>
+</body>
+
+</html>

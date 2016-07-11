@@ -1,0 +1,350 @@
+.h15
+{
+    LINE-HEIGHT: 25px
+}
+.h10
+{
+    LINE-HEIGHT: 22px
+}
+.h11
+{
+    LINE-HEIGHT: 15px
+}
+BODY
+{
+    MARGIN-TOP: 0px;
+    MARGIN-BOTTOM: 0px;
+    MARGIN-LEFT: 0px
+}
+.style3
+{
+    COLOR: #0000ff
+}
+.style7
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 14px;
+    COLOR: #000000
+}
+.style9
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 14px;
+    COLOR: #333333
+}
+.style12
+{
+    FONT-SIZE: 14px;
+    COLOR: #333333
+}
+.style15
+{
+    FONT-SIZE: 14px
+}
+.style16
+{
+    COLOR: #666666
+}
+.style18
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 14px
+}
+.style20
+{
+    FONT-SIZE: 13px;
+    COLOR: #553400
+}
+.style21
+{
+    COLOR: #553400
+}
+.style22
+{
+    FONT-SIZE: 12px
+}
+.style23
+{
+    COLOR: #ff0000
+}
+.style38
+{
+    COLOR: #153d5e
+}
+.style24
+{
+    FONT-SIZE: 14px;
+    COLOR: #000000
+}
+.style25
+{
+    FONT-SIZE: 14px;
+    COLOR: #ff0000
+}
+.style26
+{
+    COLOR: #042a69
+}
+.style27
+{
+    COLOR: #000000
+}
+.style28
+{
+    FONT-SIZE: 14px;
+    COLOR: #002299
+}
+A
+{
+    COLOR: #000000;
+    TEXT-DECORATION: none
+}
+A:hover
+{
+    COLOR: #ff0000
+}
+TD
+{
+    FONT-SIZE: 12px;
+    LINE-HEIGHT: 160%
+}
+INPUT
+{
+    FONT-SIZE: 12px;
+    HEIGHT: 20px
+}
+.login
+{
+    FONT-SIZE: 12px;
+    WIDTH: 100px
+}
+SELECT
+{
+    FONT-SIZE: 12px;
+    HEIGHT: 18px
+}
+.tw
+{
+    FONT-SIZE: 12px;
+    COLOR: #FF0000;
+    TEXT-DECORATION: underline;
+    LINE-HEIGHT: 12px
+}
+.mo
+{
+    FONT-SIZE: 12px;
+    COLOR: black
+}
+.t9
+{
+    COLOR: #000099
+}
+.t7
+{
+    FONT-SIZE: 14px;
+    COLOR: #777777
+}
+.tb
+{
+    COLOR: blue
+}
+.tb1
+{
+    COLOR: #4060ab
+}
+.tru
+{
+    COLOR: red;
+    TEXT-DECORATION: underline
+}
+.tbu
+{
+    COLOR: black;
+    TEXT-DECORATION: underline
+}
+.hand
+{
+    CURSOR: hand
+}
+IMG
+{
+    BORDER-RIGHT: 0px;
+    BORDER-TOP: 0px;
+    BORDER-LEFT: 0px;
+    BORDER-BOTTOM: 0px
+}
+.font3
+{
+    FONT-SIZE: 12px;
+    COLOR: #ffffff
+}
+.font4
+{
+    FONT-SIZE: 14px
+}
+.font5
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 14px;
+    LINE-HEIGHT: 25px
+}
+.font5b
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 16px;
+    COLOR: black;
+    LINE-HEIGHT: 25px
+}
+.font7
+{
+    FONT-SIZE: 12px;
+    COLOR: #0406ab
+}
+.font8
+{
+    FONT-SIZE: 14px;
+    COLOR: #ffffff
+}
+.ed1
+{
+    FONT-SIZE: 12px;
+    LINE-HEIGHT: 12px
+}
+.ht
+{
+    FONT-SIZE: 18px;
+    FONT-FAMILY: ºÚÌå
+}
+.blueLink
+{
+    COLOR: #000099
+}
+.blueLink A
+{
+    COLOR: #000099
+}
+.blueLink A:visited
+{
+    COLOR: #000099
+}
+.blueLink A:hover
+{
+    COLOR: red
+}
+.hand1
+{
+    CURSOR: hand;
+    COLOR: #553400
+}
+.blueLink1
+{
+    COLOR: #003399
+}
+.blueLink1 A
+{
+    COLOR: #003399
+}
+.blueLink1 A:visited
+{
+    COLOR: #003399
+}
+.blueLink1 A:hover
+{
+    COLOR: red
+}
+.fr
+{
+    COLOR: red
+}
+.fh
+{
+    COLOR: black
+}
+.fg
+{
+    COLOR: green
+}
+.fu
+{
+    FONT-SIZE: 14px;
+    LINE-HEIGHT: 18px;
+    TEXT-DECORATION: underline
+}
+.current
+{
+    COLOR: red
+}
+.title14
+{
+    FONT-SIZE: 14px
+}
+.tdButton1
+{
+    BACKGROUND-IMAGE: url(/cominfo/images/1.GIF);
+    background-repeat:no-repeat;      
+}
+.tdButton2
+{
+    BACKGROUND-IMAGE: url(/cominfo/images/3.GIF);
+    background-repeat:no-repeat;      
+}
+.tdButton3
+{
+    BACKGROUND-IMAGE: url(/cominfo/images/2.GIF);
+    background-repeat:no-repeat;      
+}
+.tr11
+{
+    FONT-SIZE: 14px;
+    COLOR: #cc0000
+}
+.fru
+{
+    FONT-SIZE: 14px;
+    COLOR: red;
+    TEXT-DECORATION: underline
+}
+.stockref
+{
+    FONT-SIZE: 12px;
+    COLOR: red;
+    TEXT-DECORATION: underline
+}
+.tdhead
+{
+    FONT-SIZE: 12px;
+    COLOR: white;
+    BACKGROUND-COLOR: #587999
+}
+.title
+{
+    FONT-SIZE: 12px;
+    COLOR: black;
+    BACKGROUND-COLOR: #e7e6fb
+}
+.line
+{
+    TEXT-DECORATION: underline
+}
+.l
+{
+    TEXT-DECORATION: underline
+}
+.tr
+{
+    COLOR: red
+}
+.tdbottom
+{
+    BORDER-BOTTOM: #999999 1px solid
+}
+.f14
+{
+    FONT-SIZE: 14px;
+    LINE-HEIGHT: 16px
+}
+.fontUnderline
+{
+    COLOR: navy;
+    TEXT-DECORATION: underline
+}

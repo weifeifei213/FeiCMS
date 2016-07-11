@@ -1,0 +1,185 @@
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>jatoolsPrinter ,我的套打工具</title>
+<style>
+.normal{
+	font-family : Arial,Vernada, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #444444;
+	text-decoration: none;
+	line-height: 21px;        
+}
+.strong{
+	font-family : Arial,Vernada, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #444444;
+	text-decoration: none;
+	line-height:20px; margin-top:4; margin-bottom:0        
+}
+
+.code{
+	font-family : Arial,Vernada, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #444444;
+	text-decoration: none;
+	line-height: 16px;        
+}
+:link.normal {
+	COLOR: #5c81a7; TEXT-DECORATION: underline
+}
+:visited.normal {
+	COLOR: #5c81a7; TEXT-DECORATION: none
+}
+:active.normal {
+	COLOR: #5c81a7; TEXT-DECORATION: none
+}
+:hover.normal {
+	COLOR: #5c81a7; TEXT-DECORATION: underline
+}
+.note {
+	font-size: 13px;
+    font-family: 仿宋_GB2312;
+    color: #660000;
+	text-decoration: none;
+}
+H1 { 
+   font-family : Arial,Vernada,Tahoma, sans-serif;
+   color : #00008B;
+   background-color : White;
+   font-size: 28px;
+}
+H2 { 
+  
+   	color: #444444;
+	line-height:20px; 
+}
+H3 { 
+   font-family : Vernada, Tahoma, Helvetica, sans-serif;
+   font-size: 16px; 
+   	color: #444444;
+   	line-height: 20px; 
+
+}
+h4 {
+	font-family : Vernada, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #444444;
+	line-height: 20px; 
+}
+</style>
+</head>
+
+<body><br>
+<h1 align="center">jatoolsPrinter ，免费的web打印工具</h1>
+<blockquote>
+  <blockquote>
+    <p class="normal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font size="5">
+    ------会做网页即会做套打<br>
+　</font></p>
+    <table cellpadding="0" cellspacing="0" style="border-collapse: collapse; float: right; border-left-style: solid; border-bottom-style: solid" bordercolor="#FFFFFF" width="175" id="AutoNumber1" class="normal" bgcolor="#E4E4E4" height="137" border="7">
+      <tr>
+        <td width="155" bgcolor="#EFEFEF" height="21" style="border-left-style: solid; border-left-width: 1; border-right-width: 1; border-top-width: 1; border-bottom-width: 1; padding-left:11; padding-top:0">
+        <a href="guide.htm">使用指南及演示 &gt;&gt; </a></td>
+      </tr>
+      <tr>
+        <td width="155" height="21" style="border-left-style: solid; border-left-width: 1; border-right-width: 1; border-top-width: 1; border-bottom-width: 1; padding-left:11; padding-top:0">
+        <a href="demo.htm">交互式体验 &gt;&gt;&nbsp;</a></td>
+      </tr>
+      <tr>
+        <td width="155" bgcolor="#EFEFEF" height="17" style="border-left-style: solid; border-left-width: 1; border-right-width: 1; border-top-width: 1; border-bottom-width: 1; padding-left:11; padding-top:0">
+        <a href="topics.htm">技术文章 &gt;&gt;</a>&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="155" height="21" style="border-left-style: solid; border-left-width: 1; border-right-width: 1; border-top-width: 1; border-bottom-width: 1; padding-left:11; padding-top:0">
+        <a href="jatoolsPrinter1.0.zip">下载&nbsp; jatoolsPrinter</a> (126k)</td>
+      </tr>
+      <tr>
+        <td width="155" bgcolor="#EFEFEF" height="42" style="border-left-style: solid; border-left-width: 1; border-right-width: 1; border-top-width: 1; border-bottom-width: 1; padding-left:11; padding-top:0" valign="bottom">
+        友情链接:<br>
+        <a href="http://www.jatools.com/">jatoolsReport (杰表) &gt;&gt; </a></td>
+      </tr>
+	  <tr>
+        <td width="155" height="21" style="border-left-style: solid; border-left-width: 1; border-right-width: 1; border-top-width: 1; border-bottom-width: 1; padding-left:11; padding-top:0">
+       <a href="http://groups.google.com/group/jatoolsprinter?hl=zh-CN">技术论坛 &gt;&gt; </a></td>
+      </tr>
+    </table>
+  </blockquote>
+</blockquote>
+  <blockquote>
+<blockquote>
+      <blockquote>
+
+
+
+<b>
+
+   <p class="strong"> <img class='strong' border="0" src="image/icon1.gif" width="5" height="5">&nbsp; 想用一套免费，好用，兼容j2ee及.net的web打印工具?</p>
+  
+
+    <p class="strong"><img border="0" src="image/icon1.gif" width="5" height="5">&nbsp; 想用普通网页实现套打?</p>
+
+    <p class="strong"><img border="0" src="image/icon1.gif" width="5" height="5">&nbsp; 想用网页代码自动配置输出打印机、纸张大小、打印方向，而无须人为设定?</p>
+
+
+  <p class="strong"><img border="0" src="image/icon1.gif" width="5" height="5">&nbsp; 想用网页批量打印票据?</p>
+    </b>
+
+
+
+
+
+
+
+
+
+
+
+    <p class="normal">欢迎来到jatoolsPrinter中心，体验实现web打印的DIY乐趣 !</p>
+
+
+    <p class="normal">jatoolsPrinter 
+    是一款实现网页套打的免费工具。该工具的特点是可以直接对web页面进行精确的分页打印，这不仅使&quot;会设计网页就会做网页套打&quot;成为可能，也使项目经理们摆脱了预算紧张的压力。jatoolsPrinter通过在网页中嵌入控件，解决了web客户端精确打印，批量打印，打印配置自动保留等问题。
+    功能特点有：</p>
+
+
+    <ol class="normal">
+      <li>小巧，整个控件只有90k。</li>
+      <li>
+      对网页实现打印，这使得您用frontpage、dreamwaver就可以来设计套打。</li>
+      <li>可以打印预览。</li>
+      <li>套打底图可以仅在打印预览时显示，不输出到打印机。</li>
+      <li>支持javascript设置打印参数，如输出打印机，页型，打印方向等
+      ，这使操作人员可以轻轻松松点击打印就可以了，不需要每次打印前手动修改这些参数。</li>
+      <li>
+      某一票据的打印时打印参数自动保留，待下一次打印同一票据时，自动设置，这使客户端也可以控制打印参数。</li>
+      <li>可以不显示票据，直接指定票据的url，进行打印。</li>
+      <li>支持票据及其附件的批量打印。</li>
+      <li>可以取得本机中的可用打印机，可用纸张类型列表，帮您设计出更友好的参数设置界面。</li>
+      <li>
+      与您项目采用的技术标准无关，j2ee,.net项目均可。</li>
+      <li>IE 5.5+ 中适用。<br>
+　</li>
+    </ol>
+    <h2>新闻动态</h2>
+    <p class="normal">2006.6.22&nbsp; 正式推出 jatoolsPrinter 1.1.5 , 开通软件官方网站 
+    <a href="http://print.jatools.com/">http://print.jatools.com</a><br>
+    2006.6.23&nbsp;&nbsp;开通jatoolsPrinter开发QQ群：26698040 ，欢迎大家就web打印话题，进行交流    。<br>
+	2006.7.14&nbsp; 增加打印栏按钮，增加页面导航功能。<br>
+    2007.4.19&nbsp; 更新版本至 1,2,0,6 .&nbsp; 增加属性 <a href="guide.htm#classReplaced">
+    classesReplacedWhenPrint</a>,用于在打印或预览时，动态修改css定义。</p>
+    <p class="normal">　</p>
+    <p class="normal"><br>
+　</p>  </blockquote>
+  </blockquote>
+</blockquote><div style='visibility: hidden'>
+<script type="text/javascript">hxstat_WebID=1830;</script>
+<script type="text/javascript" src="http://www.hxstat.com/js/stat.js"></script>
+<noscript>
+<a href="http://www.hxstat.com/?id=1830" target="_blank"><img src="http://www.hxstat.com/stat.asp?id=1830&amp;img=1" alt="ITlearner HxStat" border="0"></a></noscript></div>
+
+</body>
+
+</html>

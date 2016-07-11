@@ -1,0 +1,148 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=gbk">
+
+<!-- 插入打印控件 -->
+<OBJECT ID="jatoolsPrinter" CLASSID="CLSID:B43D3361-D975-4BE2-87FE-057188254255" codebase="jatoolsP.cab#version=1,2,0,5"></OBJECT>  
+
+
+<title>支票套打演示</title><style>
+<!--
+*{
+-moz-box-sizing: border-box;
+}
+
+
+.title { 
+   font-family : Arial,Vernada,Tahoma, sans-serif;
+   font-size: 30px;
+   color : #00008B;
+   background-color : White; text-decoration:underline
+}
+.normal{
+	font-family : Arial,Vernada, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #444444;
+	text-decoration: none;
+	line-height: 21px;}
+
+
+.hide_for_jatools_print{}
+.jc{position:absolute;overflow:hidden}
+.jnc{position:absolute}
+.pb{overflow:hidden;position:relative;margin:5;width:857;height:302;background-color:white;
+border-left:1px solid black;border-top:1px solid black;	border-right:4px solid black;border-bottom:4px solid black;}
+.c12{margin-left:2px;margin-bottom:-2px;font-family: 宋体;font-size: 24px;font-weight: bold;color: #FF0000}
+.c9, .c8, .c6, .c5, .c4, .c3, .c0{margin-left:2px;margin-bottom:-2px;font-family: 宋体;font-size: 12px;}
+.c2{margin-left:2px;margin-bottom:-2px;font-family: 宋体;font-size: 12px;}
+.c7{margin-left:2px;margin-bottom:-2px;text-align: right;font-family: 宋体;font-size: 12px;}
+.c11, .c10, .c1{margin-left:2px;margin-bottom:-2px;text-align: right;font-family: 宋体;font-size: 12px;}
+--></style>
+<script>
+function doPrint(how)
+{
+    
+    if(typeof(jatoolsPrinter.page_div_prefix)=='undefined'){
+        alert("请按页顶上的黄色提示下载ActiveX控件.如果没有提示请按以下步骤设置ie.\n 工具-> internet 选项->安全->自定义级别,设置 ‘下载未签名的 ActiveX ’为'启用'状态")
+        return ;
+    }
+	//打印文档对象
+    var myreport ={ 
+    				documents: document,    // 打印页面(div)们在本文档中
+    				copyrights  :    '杰创软件拥有版权 www.jatools.com'         // 版权声明必须
+    			  };
+    			  
+    // 调用打印方法
+    if(how == '打印预览...')
+    	jatoolsPrinter.printPreview(myreport );   // 打印预览
+                 
+   	else if(how == '打印...')
+   		jatoolsPrinter.print(myreport ,true);   // 打印前弹出打印设置对话框
+                
+   	else
+   		jatoolsPrinter.print(myreport ,false);       // 不弹出对话框打印
+}
+</script> 
+
+</head>
+<body >
+
+<p class="title">仅在预览时可见，不输出到打印机的套打底图</p>
+
+<div style='background-color:#808080;width:890;height:330;overflow:scroll;'>
+<div id="page_1" class="pb" >
+<div id="page1"><div class="jnc" STYLE="left:0; top:0;clip:rect(0,857,302,0)">
+<img class='hide_for_jatools_print' src="printcheque.htm.tmp/jatools4358.GIF" width="857" height="302"></div>
+<div class="jc" STYLE="left:302; top:76; width:213;height:20">
+<p class="c0" style="margin-top:4px;">深圳新业软件有限公司</p>
+</div>
+<div class="jc" STYLE="left:497; top:56; width:48;height:20"><p class="c1" style="margin-top:4px;">零玖</p>
+</div>
+<div class="jc" STYLE="left:98; top:195; width:90;height:20"><p class="c2" style="margin-top:4px;">￥58000.00</p>
+</div>
+<div class="jc" STYLE="left:659; top:73; width:147;height:20"><p class="c3" style="margin-top:4px;">423051702880563</p>
+</div>
+<div class="jc" STYLE="left:659; top:53; width:153;height:20"><p class="c4" style="margin-top:4px;">杭州基因生物工程公司</p>
+</div>
+<div class="jc" STYLE="left:283; top:142; width:90;height:17"><p class="c5" style="margin-top:2px;">培训费</p>
+</div>
+<div class="jc" STYLE="left:313; top:107; width:177;height:20"><p class="c6" style="margin-top:4px;">￥伍万捌仟元整</p>
+</div>
+<div class="jc" STYLE="left:644; top:113; width:15;height:20"><p class="c7" style="margin-top:4px;">&nbsp;</p>
+</div>
+<div class="jc" STYLE="left:659; top:113; width:15;height:20"><p class="c7" style="margin-top:4px;">&nbsp;</p>
+</div>
+<div class="jc" STYLE="left:674; top:113; width:15;height:20"><p class="c7" style="margin-top:4px;">&nbsp;</p>
+</div>
+<div class="jc" STYLE="left:689; top:113; width:15;height:20"><p class="c7" style="margin-top:4px;">￥</p>
+</div>
+<div class="jc" STYLE="left:704; top:113; width:15;height:20"><p class="c7" style="margin-top:4px;">5</p>
+</div>
+<div class="jc" STYLE="left:719; top:113; width:15;height:20"><p class="c7" style="margin-top:4px;">8</p>
+</div>
+<div class="jc" STYLE="left:734; top:113; width:15;height:20"><p class="c7" style="margin-top:4px;">0</p>
+</div>
+<div class="jc" STYLE="left:749; top:113; width:15;height:20"><p class="c7" style="margin-top:4px;">0</p>
+</div>
+<div class="jc" STYLE="left:764; top:113; width:15;height:20"><p class="c7" style="margin-top:4px;">0</p>
+</div>
+<div class="jc" STYLE="left:779; top:113; width:15;height:20"><p class="c7" style="margin-top:4px;">0</p>
+</div>
+<div class="jc" STYLE="left:794; top:113; width:15;height:20"><p class="c7" style="margin-top:4px;">0</p>
+</div>
+<div class="jc" STYLE="left:97; top:216; width:91;height:17"><p class="c8" style="margin-top:2px;">培训费</p>
+</div>
+<div class="jc" STYLE="left:97; top:174; width:123;height:20"><p class="c9" style="margin-top:4px;">深圳新业</p>
+</div>
+<div class="jc" STYLE="left:357; top:57; width:57;height:18"><p class="c10" style="margin-top:3px;">贰零零肆</p>
+</div>
+<div class="jc" STYLE="left:441; top:54; width:42;height:24"><p class="c11" style="margin-top:6px;">零壹</p>
+</div>
+
+</div></div><script>
+</script></div>&nbsp;
+<table border="0" cellpadding="0" cellspacing="0" width="100%" id="AutoNumber1" height="206">
+  <tr>
+    <td width="33%" height="206" valign="top"><input type="button" value="打印预览..." onClick="doPrint('打印预览...')">
+<input type="button" value="打印..." onClick="doPrint('打印...')">
+<input type="button" value="打印" onClick="doPrint('打印')"> </td>
+    <td width="67%" height="206" valign="top" class="normal">
+    <table class="normal" style="BORDER-COLLAPSE: collapse; " borderColor="#808080" height="92" cellSpacing="0" cellPadding="5" width="565" border="1">
+          <tr>
+            <td width="551" bgColor="#f3f3f3" height="125">&lt;style&gt;<br>
+            &lt;!-- 套打底图,在预览时需要显示,但不打印,为达到此效果,您可以新增样式类,如下所示--&gt;<br>
+            .hide_for_jatools_print {}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            // 空的样式类<br>
+            .title{ ... ... }<br>
+            &lt;/style&gt;<br>
+            ...<br>
+            &lt;img class=&#39;hide_for_jatools_print&#39; src=&#39;background.jpg&#39;&nbsp; 
+            alt=&#39;本图片只在预览中可见&#39;&gt; <br>
+            &lt;div class=&#39;hide_for_jatools_print title&#39; &gt; 本层中的内容只在打印预览时可见 &lt;/div&gt;<br>
+            ...</td>
+          </tr>
+        </table>注: 通过特殊的样式类 hide_for_jatools_print，您可以控制所有可视化元素要求其仅在预览时可见。</td>
+  </tr>
+</table>
+
+
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+        </body></html>

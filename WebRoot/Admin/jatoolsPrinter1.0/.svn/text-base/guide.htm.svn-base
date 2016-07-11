@@ -1,0 +1,672 @@
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>jatoolsPrinter 1</title>
+<style>
+<!--
+H1 { 
+   font-family : Arial,Vernada,Tahoma, sans-serif;
+   color : #00008B;
+   background-color : White;
+   font-size: 28px;
+}
+
+.normal{
+	font-family : Arial,Vernada, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #444444;
+	text-decoration: none;
+	line-height: 21px;        
+}
+H2 { 
+  
+   	color: #444444;
+	line-height:20px; 
+}
+H3 { 
+   font-family : Vernada, Tahoma, Helvetica, sans-serif;
+   font-size: 16px; 
+   	color: #444444;
+   	line-height: 20px; 
+
+}
+.code{
+	font-family : Arial,Vernada, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #444444;
+	text-decoration: none;
+	line-height: 16px;        
+}
+:link.normal {
+	COLOR: #5c81a7; TEXT-DECORATION: underline
+}
+.note {
+	font-size: 13px;
+    font-family: 仿宋_GB2312;
+    color: #660000;
+	text-decoration: none;
+}
+h4 {
+	font-family : Vernada, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #444444;
+	line-height: 20px; 
+}
+-->
+</style>
+</head>
+
+<body>
+
+<h1 align="center">　</h1>
+<h1 align="center">jatoolsPrinter 1.0 使用手册</h1>
+
+<blockquote>
+  <blockquote>
+    <p class="normal">
+    <a href="#入门">入门</a><br>
+    <a href="#sysl">使用示例</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#dyfy">打印预览一个分页文档</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#dyfy">打印前设置打印参数</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#bldycs">保留打印时的打印参数</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dyc">第一次打印用当前配置，后续打印用最后一次打印配置</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dydwd"> 一次打印若干文档</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#dwd">多个文档共存在同一web页面中，区别打印</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#bxswd">不显示文档，直接指定url打印</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#hiddenobject">打印隐藏对象</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#hidee">仅在预览时可见，不输出到打印机的套打底图</a><br>
+    <a href="#cksc">参考手册</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#dyczcs">文档打印对象</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <a href="#print_settings">print_settings</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <a href="#printer">printer</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <a href="#pageWidth">pageWidth</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <a href="#pageHeight">pageHeight</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <a href="#orientation">orientation</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <a href="#pageHeight">print_settings_id</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#documents">documents</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#classReplaced">classesReplacedWhenPrint</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#load_print_settings_if_exists"> 
+    load_print_settings_if_exists</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <a href="#save_print_settings_after_print">save_print_settings_after_print</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <a href="#copyrights">copyrights</a>&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#kjff">控件方法</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <a href="#printPreview">printPreview(report)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <a href="#print">print(report,prompt)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#kjsx">控件属性</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <a href="#printers">printers</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <a href="#papers">papers(printer)</a></p>
+    <p class="normal">
+    　</p>
+      </blockquote>
+      <h2><a name="入门"></a>入门</h2>
+    <blockquote>
+    <p class="normal">我们先来设计一个web页面，如下所示：</p>
+
+	<table class="code" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="144" cellSpacing="0" cellPadding="5" width="754" border="1">
+      <tr>
+        <td width="740" bgColor="#f3f3f3" height="142">&lt;html&gt;<br>
+        &lt;head&gt;<br>
+        &lt;title&gt;我的第一个打印文档&lt;/title&gt;<br>
+        &lt;/head&gt;<br>
+        &lt;body bgcolor=&quot;#e0e0e0&quot;&gt;<br>
+        <br>
+        <b>&lt;div id='page1' 
+        style='background:#ffffff;margin:10;width:270;height:450;float:left'&gt;文档第一页&lt;/div&gt;<br>
+        &lt;div id='page2' 
+        style='background:#ffffff;margin:10;width:270;height:450;float:left'&gt;文档第二页&lt;/div&gt;</b><br>
+        <br>
+        &lt;/body&gt;<br>
+        &lt;/html&gt;</td>
+      </tr>
+    </table>
+    <p class="normal">在这个文档中，有两个div对象，现在我想把这两个div对象打印输出，每个div作为单独的一页进行打印。显然ie没有提供这样的功能，
+    在ie中，您不能指定哪些元素打印在第一页，哪些元素打印在第二页等等，但是，jatoolsPrinter做到了，我们来看看jatoolsPrinter是如何做到的，现在我们就在页面中插入这个控件，如下所示。</p>
+
+	<table class="code" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="144" cellSpacing="0" cellPadding="5" width="754" border="1">
+      <tr>
+        <td width="740" bgColor="#f3f3f3" height="142">&lt;html&gt;<br>
+        &lt;head&gt;<br>
+        &lt;title&gt;我的第一个打印文档&lt;/title&gt;<br>
+        <br>
+        &lt;!-- 插入打印控件 --&gt;<br>
+        <b>&lt;OBJECT ID=&quot;jatoolsPrinter&quot; CLASSID=&quot;CLSID:B43D3361-D975-4BE2-87FE-057188254255&quot; 
+        codebase=&quot;jatoolsP.cab#version=1,2,0,5&quot;&gt;&lt;/OBJECT&gt; <br>
+        </b><br>
+        &lt;/head&gt;<br>
+        &lt;body bgcolor=&quot;#e0e0e0&quot;&gt;<br>
+        <br>
+        &lt;div id='page1' 
+        style='background:#ffffff;margin:10;width:270;height:450;float:left'&gt;文档第一页&lt;/div&gt;<br>
+        &lt;div id='page2' 
+        style='background:#ffffff;margin:10;width:270;height:450;float:left'&gt;文档第二页&lt;/div&gt;<br>
+        <br>
+        &lt;/body&gt;<br>
+        &lt;/html&gt;</td>
+      </tr>
+    </table>
+    <p class="normal">这个控件的id是 <b>jatoolsPrinter</b>，这个控件有一个方法是<b> </b>
+    <a href="#print">print</a> 
+    用来打印一系列div对象。请看下面的脚本:</p>
+
+	<table class="code" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="144" cellSpacing="0" cellPadding="5" width="754" border="1">
+      <tr>
+        <td width="740" bgColor="#f3f3f3" height="142">function doPrint()<br>
+        {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myreport = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        documents:document;&nbsp;&nbsp;&nbsp; // 要打印的div 对象在本文档中，控件将从本文档中的 id 为 
+        'page1' 的div对象，作为首页打印<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        // id 为 'page2' 的作为第二页打印 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        };<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jatoolsPrinter.print(myreport,false);&nbsp;&nbsp; 
+        // 直接打印，不弹出打印机设置对话框&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+        }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+      </tr>
+    </table>
+    <p class="normal">由上可见，您打印若干 div对象时，需要告诉控件，这些div们所属的文档对象(html的document对象)，另外，这些div对象的id，也需要按 
+    ‘page+序号‘ 的规则命名，序号从1开始计，也就是说，id为'page1'的div对象，总是作为首页打印。这些设置使用一个javascript对象来描述，也就是上面的myreport对象，具体使用方法请参
+    考<a href="#dyczcs">文档打印对象</a> 
+    ，下面是完整的html代码：</p>
+
+	<table class="code" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="87" cellSpacing="0" cellPadding="5" width="754" border="1">
+      <tr>
+        <td width="740" bgColor="#f3f3f3" height="85">&lt;html&gt;<br>
+        &lt;head&gt;<br>
+        &lt;title&gt;我的第一个打印文档&lt;/title&gt;<br>
+        <br>
+        &lt;!-- 插入打印控件 --&gt;<br>
+        &lt;OBJECT ID=&quot;jatoolsPrinter&quot; CLASSID=&quot;CLSID:B43D3361-D975-4BE2-87FE-057188254255&quot; 
+        codebase=&quot;jatoolsP.cab#version=1,2,0,5&quot;&gt;&lt;/OBJECT&gt; <br>
+        &lt;script&gt;<p>function <b>doPrint</b>()<br>
+        {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myreport = {&nbsp; documents:document,&nbsp;&nbsp; 
+        // 要打印的div 对象在本文档中，控件将从本文档中的 id 为 'page1' 的div对象，作为首页打印<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        // id 为 'page2' 的作为第二页打印 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        copyrights:'杰创软件拥有版权 <a href="http://www.jatools.com">www.jatools.com</a>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        // 版权声明,必须<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        };<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jatoolsPrinter.print(myreport,false);&nbsp;&nbsp; 
+        // 直接打印，不弹出打印机设置对话框&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+        }&nbsp;&nbsp; <br>
+        &lt;script&gt;<br>
+        &lt;/head&gt;<br>
+        &lt;body bgcolor=&quot;#e0e0e0&quot;&gt;<br>
+        <br>
+        &lt;div id='page1' 
+        style='background:#ffffff;margin:10;width:270;height:450;float:left'&gt;文档第一页&lt;/div&gt;<br>
+        &lt;div id='page2' 
+        style='background:#ffffff;margin:10;width:270;height:450;float:left'&gt;文档第二页&lt;/div&gt;<br>
+        <br>
+        &lt;input type=&quot;button&quot; value=&quot;按钮&quot;&nbsp; onClick='<b>doPrint</b>()'&gt;<br>
+        &lt;/body&gt;<br>
+        &lt;/html&gt;</td>
+      </tr>
+    </table>
+    <span class="normal"><br>
+    最后，有几点需要说明：</span>
+    <ol class="normal">
+      <li>控件在打印指定div对象时，如果纸张太小不够打印时，超出部分将被截掉(clip)。</li>
+      <li>被指定的div中的内容，可以是html任何可见对象，图片，flash，或文本等等。</li>
+      <li>
+      控件打印时，纸张边距自动设为0，页眉页脚的高度也设为0，所以您设计div时，就把他看作是完整的一页。如果您想要页脚页眉的效果，您也需要在这个div的上边或下边，自己加上。</li>
+      <li>div的id必须连续，如果您的div，存在 
+      'page1'、‘page2’、‘page4’，而不存在‘page3’，则控件只打印前两页，page4不会被打印。</li>
+      <li>div对象在页面中的位置，可以是随意的，比如，page1显示在最后，也是合法的。</li>
+      <li>指定的div会被打印，没被指定的html元素将不会被打印，比如，本示例中的‘打印’按钮。</li>
+      <li>
+    <span class="normal">copyrights属性是版权信息，必须写。</span></li>
+    </ol>
+  </blockquote>
+  <h2><br>
+  <a name="sysl"></a>使用示例</h2>
+  <blockquote>
+
+    <h3> <a name="zbsjy"></a>打印前设置打印参数</h3>
+    <p class="normal"> 您可以打印前设置打印参数，如设置输出的打印机，打印方向，纸张大小。 运行此示例  
+    <a target="_blank" href="simpleprint.htm">printwithsettings.htm</a></p>
+    <table class="code" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="144" cellSpacing="0" cellPadding="5" width="754" border="1">
+      <tr>
+        <td width="740" bgColor="#f3f3f3" height="142">&nbsp;//打印文档对象<br>
+          var myreport ={ <br>
+          print_settings:{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          // 如果想使用默认打印机,不需要设置 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          // printer: '联想激打', <br>
+          <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          // 指定纸张的高宽以毫米为单位z,本设置实际是指定为a4大小<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          pageWidth : 2100, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          pageHeight : 2970,<br>
+          <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          // 指定打打印方向为横向, 1/2 = 纵向/横向<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          orientation : 2 },<br>
+          documents: document, // 打印页面(div)们在本文档中<br>
+          copyrights : '杰创软件拥有版权 www.jatools.com' // 版权声明必须<br>
+        };</td>
+      </tr>
+    </table>
+    <h3><br>
+    <a name="bldycs"></a>第一次打印用当前配置，后续打印用最后一次打印配置</h3>
+      <p class="normal">可以保留打印时的打印参数，待下一次打印同一文档时自动配置打印参数<span class="normal">。运行此示例
+      <a href="savesettingsafterprint.htm" target="_blank">savesettingsafterprint.htm</a></span>&nbsp;
+    </p>
+    <table class="code" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="144" cellSpacing="0" cellPadding="5" width="754" border="1">
+      <tr>
+        <td width="740" bgColor="#f3f3f3" height="142">//打印文档对象<br>
+          &nbsp;var myreport ={ <br>
+&nbsp;//待保留的打印设置id,打印后将被保存在注册表中,<br>
+&nbsp;//下一次启动相同值的print_settings_id,打印文档时,<br>
+&nbsp;//控件将用保留的参数,自动设置打印机<br>
+&nbsp;print_settings_id=&quot;mysettings1&quot;; <br>
+          <br>
+&nbsp;documents: document,<br>
+&nbsp;copyrights : '杰创软件拥有版权 www.jatools.com' <br>
+        };</td>
+      </tr>
+    </table>
+      <h3><a name="dyc"></a>第一次打印用当前配置，后续打印用最后一次打印配置</h3>
+        <p>
+        <span class="normal">运行此示例 <a href="setandload.htm" target="_blank">
+    setandload.htm</a>
+        </span><br>
+&nbsp; </p>
+      <table class="code" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="144" cellSpacing="0" cellPadding="5" width="754" border="1">
+        <tr>
+          <td width="740" bgColor="#f3f3f3" height="142">//打印文档对象<br>
+            var myreport ={ <br>
+            print_settings:{&nbsp;&nbsp; // 当前设置<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            // printer: '联想激打', <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            pageWidth : 2100, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            pageHeight : 2970,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            orientation : 2 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            },<br>
+            <br>
+            //第一次打印时，注册表中没有‘mysettings2’的打印参数<br>
+            //所以使用上面指定的参数<br>
+            //打印后，控件自动将最后一次打印设置保存<br>
+            //后续打印时将用注册表中的设置，来自动配置打印机<br>
+            //上述的print_settings将被忽略<br>
+            print_settings_id : &quot;mysettings2&quot;, <br>
+            <br>
+            documents: document,<br>
+            copyrights : '杰创软件拥有版权 www.jatools.com' <br>
+          };</td>
+        </tr>
+    </table>
+      <h3><a name="dydwd"></a>一次打印若干文档</h3>
+        <p>
+        <span class="normal">运行此示例 <a href="batchprint.htm" target="_blank">batchprint.htm</a></span> </p>
+    <p class="note">注意，批量打印时，而且打印文档数超过一个，只能进行无提示的直接打印操作。</p>
+      <table class="code" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="144" cellSpacing="0" cellPadding="5" width="754" border="1">
+        <tr>
+          <td width="740" bgColor="#f3f3f3" height="142">//打印文档对象<br>
+            &nbsp;var myreport ={ <br>
+            <br>
+            //批量打印时，需要用数组来指定打印文档<br>
+            //文档页可以在一个document对象中，也可以在url指定的一个文档中<br>
+            documents: new Array(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            document, // 打印页面(div)们在正显示在本文档中<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            'append1.htm', // 打印页面(div)们在一个url指定的文档中<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            'append2.htm',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            'append3.htm'<br>
+            )<br>
+            copyrights : '杰创软件拥有版权 www.jatools.com' // 版权声明必须<br>
+          };</td>
+        </tr>
+    </table>
+    <h3><a name="dwd"></a>多个文档共存在同一web页面中，区别打印</h3> 
+    <p> 
+  <span class="normal">运行此示例&nbsp;<a href="distinctprint.htm" target="_blank">distinctprint.htm</a></span>
+&nbsp; </p>
+<table class="code" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="144" cellSpacing="0" cellPadding="5" width="755" border="1">
+        <tr>
+          <td width="741" bgColor="#f3f3f3" height="142">//打印文档对象<br>
+            var myreport ={ <br>
+            <br>
+            documents: document,<br>
+            <br>
+            // 在同一页面中,有多个可打印文档,他们可以用<br>
+            // page_div_prefix&nbsp; 属性来区别<br>
+            // page_div_prefix前缀+page+页序号 构成可打印div的id,<br>
+            // 如前缀为 'report1' ,则找到以 'report1page1'为id的<br>
+            // div作为文档首页<br>
+            // 该属性,默认值为空<br>
+            page_div_prefix: whichreport.value, // 本例中,可能是 'report1'或'report2'<br>
+            <br>
+            copyrights : '杰创软件拥有版权 www.jatools.com' <br>
+          };</td>
+        </tr>
+    </table>
+    <h3><a name="bxswd"></a>不显示文档，直接指定url打印</h3>
+
+    <p>
+
+    <span class="normal">运行此示例 <a href="printurl.htm" target="_blank">printurl.htm</a></span></p>
+      <table class="code" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="144" cellSpacing="0" cellPadding="5" width="754" border="1">
+        <tr>
+          <td width="740" bgColor="#f3f3f3" height="142">//打印文档对象<br>
+            &nbsp;var myreport ={ <br>
+            <br>
+            //文档页可以在url指定的一个文档中,用数组指定打印文档<br>
+            documents: new Array('simpleprint.htm'),<br>
+            <br>
+            copyrights : '杰创软件拥有版权 www.jatools.com' // 版权声明必须<br>
+          };</td>
+        </tr>
+    </table>
+    
+    <br>
+    <b><a name="hiddenobject"></a>打印隐藏对象</b><p class="normal">
+
+    您可以使用属性 <a href="#classReplaced">classesReplacedWhenPrint</a>,<span style="font-weight: 400"> 
+    将一个对象在显示时定义为不可见，在打印或打印预览时，定义为可见，这通过预定一个css类实现。如下所示。</span><span class="normal"> 运行此示例 
+    <a href="print_hidden_object.htm">print_hidden_object.htm</a></span>&nbsp; </p>
+      <table class="code" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="144" cellSpacing="0" cellPadding="5" width="754" border="1">
+        <tr>
+          <td width="740" bgColor="#f3f3f3" height="142">&lt;style&gt;<br>
+            ...<br>
+            .only_for_print {display:none}<br>
+            ...<br>
+            &lt;/style&gt;<br>
+            ...<br>
+            //左面是两个隐藏的页<br>
+            &lt;div id=page1 class='only_for_print' ...<br>
+            &lt;div id=page2 class='only_for_print' ...<br>
+            ...<p>打印印文档对象<br>
+            var myreport ={ <br>
+            ...<br>
+            // 打印时,only_for_print取值为显示<br>
+			classesReplacedWhenPrint: new Array('.only_for_print{display:block}'),<br>
+            ...<br>
+            };</td>
+        </tr>
+    </table>
+    
+    <h3><a name="hidee"></a>仅在预览时可见，不输出到打印机的套打底图</h3>
+
+    <p class="normal">
+
+    通过特殊的样式类 hide_for_jatools_print，您可以控制所有可视化元素要求其仅在预览时可见，如下图示。<span class="normal"> 运行此示例 
+    <a href="printcheque.htm" target="_blank">printcheque.htm</a></span>&nbsp; </p>
+      <table class="code" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="144" cellSpacing="0" cellPadding="5" width="754" border="1">
+        <tr>
+          <td width="740" bgColor="#f3f3f3" height="142">&lt;style&gt;<br>
+            &lt;!-- 套打底图,在预览时需要显示,但不打印,为达到此效果,您可以新增样式类,如下所示--&gt;<br>
+            .hide_for_jatools_print {}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            // 空的样式类<br>
+            .title{ ... ... }<br>
+            &lt;/style&gt;<br>
+            ...<br>
+            &lt;img class=&#39;hide_for_jatools_print&#39; src=&#39;background.jpg&#39;&nbsp; 
+            alt=&#39;本图片只在预览中可见&#39;&gt; <br>
+            &lt;div class=&#39;hide_for_jatools_print title&#39; &gt; 本层中的内容只在打印预览时可见 &lt;/div&gt;<br>
+            ...</td>
+        </tr>
+    </table>
+    
+  </blockquote>
+  <h2><br>
+  <a name="cksc"></a>参考手册</h2>
+  <blockquote>
+    <p class="normal"> 在打印前，您必须设置打印文档的参数，文档参数是用一个javascript对象来封装，您可以使用静态命名数组的形式构造参数对象，如下所示：</p>
+      <table class="code" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="114" cellSpacing="0" cellPadding="5" width="754" border="1">
+        <tr>
+          <td width="740" bgColor="#f3f3f3" height="112">
+      <p>var myreport = {<br>
+&nbsp;&nbsp;&nbsp;print_settings: {<br>
+&nbsp;&nbsp;&nbsp;printer: '联想激光打印机',<br>
+&nbsp;&nbsp;&nbsp;pageWidth:2790,<br>
+&nbsp;&nbsp; pageHeight: 2100&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;copyrights : 杰创软件拥有版权 <a href="http://www.jatools.com">www.jatools.com</a>'}<br>
+      }</p>
+          </td>
+        </tr>
+    </table>
+    <p>&nbsp;<span class="normal">您也可以使用new方法来构建参数对象，如下所示：</span></p>
+      <table class="code" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="114" cellSpacing="0" cellPadding="5" width="754" border="1">
+        <tr>
+          <td width="740" bgColor="#f3f3f3" height="112">
+      <p>var myreport = new Object();<br>
+      settings = new Object();<br>
+      settings.printer =&nbsp; '联想激光打印机';<br>
+      settings.pageWidth = 2790;<br>
+      settings.pageHeight = 2100;<br>
+      myreport.print_settings = settings;<br>
+      copyrights = '杰创软件拥有版权 
+      <a href="http://www.jatools.com">www.jatools.com</a>';<br>
+      ...<br>
+&nbsp;myreport.print_settings.pageWidth = 2100;&nbsp;&nbsp;&nbsp; //&nbsp;修改某一属性</p>
+          </td>
+        </tr>
+    </table>
+    <h3>      <a name="dyczcs"></a>文档打印对象</h3>
+    <h4><a name="print_settings"></a>print_settings<span style="font-weight: 400"><span class="normal"><br>
+    打印前，您可以使用这个参数，来设置您的打印机，包括设置输出到哪个打印机，纸张大小，打印方向。当您指定了 print_settings_id属性，而且在系统中找到该id的历史打印设置时，本属性所设无效，打印参数将依照历史参数设置之,而忽略本属性中的参数。</span></span></h4>
+    <h4><a name="printer"></a>printer<br>
+    <span style="font-weight: 400">输出打印机，当您的工作站连接了多台打印机时，比如，有针式打印机，激光打印机,您可以使用这个属性来设置您要求输出的打印机，如果不设置，系统将用默认打印机进行输出。</span></h4>
+    <h4><a name="pageWidth"></a>pageWidth,<a name="pageHeight"></a>pageHeight<span class="normal"><br>
+    <span style="font-weight: 400">打印纸张的宽度与高度，以毫米为单位。pageWidth必须与pageHeight一起指定，如果仅指定一个参数,则系统忽略。如果不指定，则默认纸张大小，为系统默认打印机的首选纸张类型。<br>
+    如果您指定的纸张是非标准的纸张大小，控件会自动创建一个自定义纸张，如果您的打印机，支持自定义纸张，则选用之，如果不支持，则不设置纸张。<br>
+    多数激光打印机，不支持自定义纸张。针式的票据打印机，一般都会支持。<br>
+    控件自动创建的自定义纸张名称类似这种形式 Custom 1000_9000，即按 'Custom 宽_高' 规则取名。</span><br>
+    </span><br>
+    <a name="orientation"></a>orientation<span class="normal"><br>
+    <span style="font-weight: 400">打印方向，以纵向还是横向打印，纵向取值为1,横向为2,如果不指定该参数，则打印方向为指定打印机的首选打印方向。</span></span><br>
+    </h4>
+    <h4><a name="print_settings_id"></a>print_settings_id<br>
+    <span style="font-weight: 400">当您使用了该属性，则系统在打印前，自动从系统的注册表中查找对应的历史打印设置信息，如果找到，则采用的找到的参数，来设置打印机，而忽略所有在print_settings中指定的参数。<br>
+    当您指定了该参数，则文档在打印后，即将打印参数保存到系统中，以便下一次打印同一print_settings_id的文档时取用。参照<a href="#print_settings">print_settings</a>参数。如果您不指定该参数，则系统不从注册表中装载，也不会将打印设置保存到注册表。</span></h4>
+    <h4><span class="normal"><a name="documents"></a></span>documents<br>
+    <span style="font-weight: 400">可打印页所在的文档对象，可打印页也即是web页面中的div对象。文档对象可以是javascript&nbsp;的document对象，也可以是数组，数组中的元素可以是document对象，也可以是字符串类型的url，数组的情况用于批量打印。如下所示：</span></h4>
+      <table class="code" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="114" cellSpacing="0" cellPadding="5" width="754" border="1">
+        <tr>
+          <td width="740" bgColor="#f3f3f3" height="112">
+      <p>myreport.documents = documnet;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      // 正确,<br>
+      myreport.documents = parent.frame['main'].document;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      // 正确<br>
+      myreport.documents = new Array(document,'http://localhost:8080/report1.htm','/report2.htm');&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      // 正确,批量打印.<br>
+      myreport.documents = 'report1.htm' ;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      // 不正确, 不能用字符串直接作为documents的值<br>
+      myreport.documents = new Array('report1.htm'); // 正确</p>
+          </td>
+        </tr>
+    </table>
+    <h4><span class="normal"><a name="classReplaced"></a></span>
+    classesReplacedWhenPrint<br>
+    <span style="font-weight: 400">在打印时替换 css类选择器的定义。您可以在打印或打印预览时，动态地修改这个类的定义。如下所示：</span></h4>
+      <table class="code" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="114" cellSpacing="0" cellPadding="5" width="754" border="1">
+        <tr>
+          <td width="740" bgColor="#f3f3f3" height="112">
+      &lt;style&gt;<br>
+            ...<br>
+            .normal_class {background-color:red}<br>
+            ...<br>
+            &lt;/style&gt;<br>
+            ...<br>
+            //两个隐藏的页<br>
+            &lt;div id=page1&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class=normal_class 
+      &gt;本段文字在显示时,背景为红色,打印时背景为白色&lt;/div&gt;<br>
+      &lt;/div&gt;<br>
+      <br>
+      打印印文档对象<br>
+            var myreport ={ <br>
+            ...<br>
+            classesReplacedWhenPrint: new Array('.normal_class {background-color:white}'),<br>
+            ...<br>
+            };<br>
+      ...</td>
+        </tr>
+    </table>
+    <h4>
+    <span style="font-weight: 400">当然，您可以同时动态修改多个css类定义，如：</span></h4>
+      <table class="code" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="114" cellSpacing="0" cellPadding="5" width="754" border="1">
+        <tr>
+          <td width="740" bgColor="#f3f3f3" height="112">
+      //打印印文档对象<br>
+            var myreport ={ <br>
+            ...<br>
+            classesReplacedWhenPrint: new Array('.hidden_class {background-color:white}','.strong_print 
+      {font-family:黑体}'),<br>
+            ...<br>
+            };<br>
+      ...</td>
+        </tr>
+    </table>
+    <h4><a name="load_print_settings_if_exists"></a>
+    load_print_settings_if_exists<br>
+    <span style="font-weight: 400">是否从注册表中，装载历史设置，如果是则装载，反之不装载，即使您已经指定了 
+    print_settings_id属性。 默认为装载。</span></h4>
+    <h4><a name="save_print_settings_after_print"></a>
+    save_print_settings_after_print<br>
+    <span style="font-weight: 400">是否将最后一次打印参数，保存到系统中，如果是则保存,反之不保存，即使您已经指定了 
+    print_settings_id属性。 默认为保存。</span></h4>
+    <h4><a name="copyrights"></a>copyrights<br>
+    <span style="font-weight: 400">版权信息，属性值始终为'杰创软件拥有版权 www.jatools.com'，必须。</span></h4>
+    <h3> 
+    <a name="kjff"></a>控件方法</h3>
+<h4><a name="printPreviewreport"></a>printPreview(report)<br>
+<span style="font-weight: 400">打印预览，report为一个文档打印对象，当多于一个文档的批量打印时，该方法无效。如下所示：</span></h4>
+      <table class="code" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="144" cellSpacing="0" cellPadding="5" width="754" border="1">
+        <tr>
+          <td width="740" bgColor="#f3f3f3" height="142">
+      <p> myreport = new Object();<br>
+      myreport.document = documnet;<br>
+      myreport.copyrights='杰创软件拥有版权 www.jatools.com';</p>
+      <p> jatoolsPrinter.printPreview(myreport);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      //正确<br>
+      <br>
+      myreport.documents = new Array(document,'test1.htm'); // 打印多于一个文档.<br>
+      jatoolsPrinter.printPreview(myreport); // 警告，多于一个文档不能预览报表</p>
+      <p> mhyreport.documents = new Array(document); // 只一个文档.<br>
+      jatoolsPrinter.printPreview(myreport); // 不警告</p>
+          </td>
+        </tr>
+    </table>
+    <h4>
+<a name="print"></a>print(report,prompt)<br>
+<span style="font-weight: 400">
+打印命令，report为一个文档打印对象，prompt参数指出，是否在打印前弹出打印机选择对话框。当多于一个文档的批量打印时，只能进行不提示打印。如下所示：</span></h4>
+      <table class="code" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="144" cellSpacing="0" cellPadding="5" width="754" border="1">
+        <tr>
+          <td width="740" bgColor="#f3f3f3" height="142">
+      <p> myreport = new Object();<br>
+      myreport.document = documnet;<br>
+      myreport.copyrights='杰创软件拥有版权 www.jatools.com';</p>
+      <p> jatoolsPrinter.print(myreport,false);&nbsp;&nbsp;&nbsp; /正确，不提示对话框打印<br>
+      jatoolsPrinter.print(myreport,true);&nbsp;&nbsp; //正确，提示对话框打印</p>
+      <p> mhyreport.documents = new Array(document,'test1.htm');&nbsp;&nbsp;&nbsp;&nbsp; 
+      // 打印多于一个文档.<br>
+      jatoolsPrinter.print(myreport,true);&nbsp;&nbsp;&nbsp;&nbsp; // 
+      警告，多于一个文档不能提示对话框打印</p>
+      <p> jatoolsPrinter.print(myreport,false);&nbsp;&nbsp;&nbsp;&nbsp; //正确</p>
+          </td>
+        </tr>
+    </table>
+    <h3> <a name="kjsx"></a>控件属性</h3>
+    <h4><a name="printers"></a>printers<span class="normal"><br>
+    <span style="font-weight: 400">取得所有可用的打印机，如果存在打印机，返回值是一个非空字符串，反之，返回空串，如果存在多个打印机，则打印机名称以换行符('\n')分割。
+    请参照下一节中的示例。</span><br>
+    </span>
+    
+    </h4>
+    
+    <h4><a name="papers"></a>papers(printer)<span class="normal"><br>
+    <span style="font-weight: 400">取得指定打印机的所有可用纸张类型，可用纸张列表是一个字符串对象,不同纸张采用以换行符('\n')分割 
+  ,纸张名称与规格以一个制表符('\t')分割，高与宽以字符 'x'分割，类似 'A4\t2100x2790\nA5\t2000x2100',请参照以下示例代码。</span></span><span style="font-weight: 400">
+    </span>
+    &nbsp;</h4>
+<table class="normal" style="BORDER-COLLAPSE: collapse" borderColor="#808080" height="144" cellSpacing="0" cellPadding="5" width="754" border="1">
+        <tr>
+          <td width="740" bgColor="#f3f3f3" height="142" class="code">
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 控件属性示例<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printers = jatoolsPrinters.printers;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(printers)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //存在打印机，多个打印机用换行符分割<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printers = 
+      printers.split('\n');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(i = 0;i &lt;printers.length;i++)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      var info = '第'+(i+1)+'个打印机 :'+ printers[i]+'\n';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      info += '可用的纸张列表 :\n';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      papers = jatoolsPrinter.papers(printers[i]);<br>
+      <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      // 可用纸张列表是一个字符串对象,不同纸张采用以换行符('\n')分割 ,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      //纸张名称与规格以一个制表符('\t')分割，高与宽以字符 'x'分割，类似 
+      'A4\t2100x2790\nA5\t2000x2100'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      papers = papers.split('\n');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      for(k = 0;k &lt; papers.length;k ++)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      paper = papers[k].split('\t');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      paperName = paper[0];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; paperSize = paper[1].split('x');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; paperWidth = paperSize[0];<br>
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; paperHeight = paperSize[1];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      info += (paperName + '('+paperWidth+'mm x '+paperHeight+'mm)\n');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      alert(info);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </p>
+          </td>
+        </tr>
+    </table>
+  </blockquote>
+</blockquote>
+<script language=JavaScript>  var __cc_uid="jatools"; </script> 
+<script language=JavaScript  src=http://www.souie.com/count/count.js></script><noscript>
+<a href=http://www.seekchina.com><img src=http://www.seekchina.com/count/images/count.gif border=0 alt=计数器></a></noscript> 
+
+</body>
+
+</html>
